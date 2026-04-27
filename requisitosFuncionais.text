@@ -1,0 +1,17 @@
+sistema de gestão de estoque:
+
+requisitos funcionais:
+login(segurança): senha
+lista de estoque, mostrando o nome do produto, especificações,dimensoes,resolução de tela,armazenamento, conectividade
+gerenciamento de stoqye, visualização, exclusão, inclusão,
+banco de dados
+
+
+
+banco de dados:
+
+1 tabela para cadastrar produtos 
+
+1 tabela, para produtos retirados/vendidos
+
+1 tabelas para produtos com quantidade disponivel
