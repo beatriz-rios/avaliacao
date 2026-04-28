@@ -65,7 +65,7 @@ INSERT INTO produtos (
     'Bivolt',
     '1920x1080',
     '512GB SSD',
-    'Wi-Fi 6, Bluetooth 5.2'
+    ' '
     );
 
     INSERT INTO movimentacao (
