@@ -1,7 +1,30 @@
+<?php
+// 1. CONEXÃO COM O BANCO
+$conn = mysqli_connect("localhost", "root", "", "saep_db");
 
+// 2. PEGA O ID DA URL (ex: editarProduto.php?id=5)
+$id = $_GET['id'];
 
+// 3. BUSCA OS DADOS DO PRODUTO NO BANCO
+$sql = "SELECT * FROM produtos WHERE idprodutos = '$id'";
+$resultado = mysqli_query($conn, $sql);
 
-<!-- html normal basico  -->
+// 4. GUARDA OS DADOS NA VARIÁVEL $produto
+// É aqui que a variável $produto nasce!
+$produto = mysqli_fetch_assoc($resultado);
+
+// 5. LÓGICA PARA SALVAR (Se clicar no botão salvar)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $novoNome = $_POST['nome'];
+    $sqlUpdate = "UPDATE produtos SET nome = '$novoNome' WHERE idprodutos = '$id'";
+    
+    if (mysqli_query($conn, $sqlUpdate)) {
+        header("Location: consultaTabela.php"); // Volta para a tabela
+        exit();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,47 +32,15 @@
     <title>Editar Produto</title>
 </head>
 <body>
-    <h1>Editar Produto</h1>
-    <form method="post">
-        <input type="hidden" name="idprodutos" value="<?php echo $produto['idprodutos']; ?>">
+    <h1>Editar Produto: <?php echo $produto['nome']; ?></h1>
 
-        <label for="nome">Nome do Produto:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($produto['nome']); ?>" required><br><br>
-
-        <input type="submit" value="Salvar Alterações">
+    <form method="POST">
+        <label>Nome do Produto:</label>
+        <input type="text" name="nome" value="<?php echo $produto['nome']; ?>" required>
+        
+        <br><br>
+        <button type="submit">Salvar Alterações</button>
         <a href="consultaTabela.php">Cancelar</a>
     </form>
-
-    <?php
-$servername = "localhost";
-$database = "saep_db";
-$username = "root";
-$password = "";
-
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-// Se o formulário foi enviado para atualizar o produto
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['idprodutos'];
-    $novoNome = $_POST['nome'];
-
-    // Atualiza o nome do produto no banco
-    $sqlAtualiza = "UPDATE produtos SET nome = '$novoNome' WHERE idprodutos = '$id'";
-    
-    if (mysqli_query($conn, $sqlAtualiza)) {
-        echo "<script>alert('Produto atualizado com sucesso!'); window.location.href='consultaTabela.php';</script>";
-    } else {
-        echo "Erro ao atualizar: " . mysqli_error($conn);
-    }
-}
-
-// Busca os dados do produto para preencher o formulário
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "SELECT idprodutos, nome FROM produtos WHERE idprodutos = '$id'";
-    $resultado = mysqli_query($conn, $sql);
-    $produto = mysqli_fetch_assoc($resultado);
-}
-?>
 </body>
 </html>
