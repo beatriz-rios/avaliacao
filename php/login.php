@@ -11,10 +11,10 @@
     <form id="formulario-login">
 
         <label for="email-input">Email</label>
-        <input type="text" id="email-input" name="email">
+        <input type="text" id="email-input" name="email" required>
         
         <label for="senha-input">Senha</label>
-        <input type="password" id="senha-input" name="senha">
+        <input type="password" id="senha-input" name="senha" required>
         
         <input type="submit" value="Login">
         

@@ -1,0 +1,40 @@
+DOCUMENTAÇÃO DO SISTEMA DE GESTÃO DE ESTOQUE
+
+1. O QUE O SISTEMA FAZ
+O sistema de Gestão de Estoque é uma aplicação web desenvolvida para facilitar o controle de inventário de produtos eletrônicos. Ele permite o cadastro detalhado de itens (como smartphones, monitores e notebooks) e o registro de movimentações de entrada e saída, calculando automaticamente o saldo atual em estoque para cada produto.
+
+O objetivo principal é oferecer uma interface centralizada onde o administrador pode visualizar quais itens estão disponíveis, adicionar novos produtos ao catálogo, editar informações existentes e registrar vendas ou reposições de estoque.
+
+--------------------------------------------------------------------------------
+
+2. REQUISITOS FUNCIONAIS (RF)
+Estes requisitos descrevem as funcionalidades que o sistema oferece:
+
+* RF01 - Autenticação (Login): Tela de login para acesso apenas a usuários autorizados.
+* RF02 - Cadastro de Produtos: Inclusão de novos produtos (nome, voltagem, resolução, armazenamento, conectividade).
+* RF03 - Listagem de Estoque: Tabela com produtos e o saldo atual calculado.
+* RF04 - Pesquisa de Produtos: Filtro de busca por nome na listagem.
+* RF05 - Edição de Dados: Alteração das informações de produtos já cadastrados.
+* RF06 - Exclusão de Produtos: Remoção definitiva de produtos.
+* RF07 - Registro de Movimentação: Registro de entradas (tipo 1) e saídas (tipo 2).
+* RF08 - Menu de Navegação: Links de acesso rápido para todas as funções.
+
+--------------------------------------------------------------------------------
+
+3. REQUISITOS NÃO FUNCIONAIS (RNF)
+Estes requisitos descrevem as qualidades técnicas do sistema:
+
+* RNF01 - Tecnologias: Desenvolvido em PHP, MySQL, HTML, CSS e JavaScript.
+* RNF02 - Segurança: Proteção de páginas internas via verificação de login (logout.js).
+* RNF03 - Integridade: Uso de chaves estrangeiras para vincular movimentações a produtos.
+* RNF04 - Performance: Cálculos de estoque realizados no SQL para maior agilidade.
+* RNF05 - Interface: Layout limpo e organizado para fácil uso.
+* RNF06 - Ambiente: Compatível com XAMPP e navegadores modernos.
+
+--------------------------------------------------------------------------------
+
+4. ESTRUTURA DO BANCO DE DADOS
+Banco: saep_db
+Tabelas:
+- produtos: (id, nome, tensaoVoltagem, resolucaoTela, armazenamento, conectividade)
+- movimentacao: (id, tipo_movimentacao, produto_id, quantidade)

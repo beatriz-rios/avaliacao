@@ -6,6 +6,12 @@
     <title>Cadastro de Produtos Eletrônicos</title>
 </head>
 <body>
+    <ul>
+    <li><a href="http://localhost/avaliacao/php/menu.php">Menu</a></li>
+    <li><a href="http://localhost/avaliacao/php/cadastroProduto.php">Cadastro de Produtos</a></li>
+    <li><a href="http://localhost/avaliacao/php/cadastroMovimento.php">Cadastro de Movimentação</a></li>
+    <li><a href="http://localhost/avaliacao/php/consultaTabela.php">Consulta de Produtos</a></li>
+</ul>
     <h1>Cadastro de Produtos Eletrônicos</h1>
     <form method="post">
         <label for="nome">Nome do Produto:</label>
