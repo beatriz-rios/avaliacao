@@ -26,7 +26,7 @@
     $nome_pesquisado = $_GET['pesquisa'] ?? '';
 
     // 3. MONTA A QUERY SQL
-    // O WHERE p.nome LIKE '%$nome_pesquisado%' filtra nomes que contenham o texto
+    // O WHERE p.nome LIKE '$nome_pesquisado' filtra nomes que contenham o texto
     $sql = "
     SELECT 
         p.idprodutos, 
@@ -64,7 +64,7 @@
     echo "</table>";
     ?>
 
-    <script src="../js/auth.js"></script>
+
 </body>
 
 </html>
