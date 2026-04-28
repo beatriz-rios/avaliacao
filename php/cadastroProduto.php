@@ -72,7 +72,7 @@
         )";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<div class='mensagem sucesso'>Obra cadastrada com sucesso.</div>";
+            echo "<div class='mensagem sucesso'>Produto cadastrada com sucesso.</div>";
         } else {
             echo "<div class='mensagem erro'> " . $sql . "<br>" . mysqli_error($conn) . "</div>";
         }

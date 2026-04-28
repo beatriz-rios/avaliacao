@@ -35,7 +35,8 @@ INSERT INTO produtos (
     )VALUES (
     'Smartphone XYZ',
     'Bivolt',
-    '2340x1080', '128GB', 
+    '2340x1080',
+    '128GB', 
     'Wi-Fi, Bluetooth, 5G'
     );
 
